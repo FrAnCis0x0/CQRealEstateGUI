@@ -26,8 +26,8 @@ public class Land {
         return sold;
     }
 
-    public void setSold(boolean sold) {
-        this.sold = sold;
+    public void setSold() {
+        this.sold = true;
     }
     
     public String getSoldString(){
