@@ -25,6 +25,11 @@ public class Sale {
         this.seller = seller;
         this.buyer = buyer;
         tempID += 1;
+        markPropertyAsSold();
+    }
+    
+    private void markPropertyAsSold(){
+        this.property.setSold();
     }
 
     public int getSaleID() {
