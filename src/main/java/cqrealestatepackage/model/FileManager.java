@@ -29,9 +29,9 @@ public class FileManager<F> {
         System.out.println(dataArray.get(index));
     }
     
-    //get array size
-    public int getSize(){
-        return dataArray.size();
+    //return arrayList
+    public ArrayList<F> getArrayList(){
+        return dataArray;
     }
     
     //save data to file
