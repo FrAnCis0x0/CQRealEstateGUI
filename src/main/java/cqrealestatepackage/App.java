@@ -1,5 +1,6 @@
 package cqrealestatepackage;
 
+import cqrealestatepackage.model.DataHandler;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,9 +15,13 @@ import java.io.IOException;
 public class App extends Application {
 
     private static Scene scene;
+    public static DataHandler dataHandler;
 
     @Override
     public void start(Stage stage) throws IOException {
+        
+        dataHandler = new DataHandler();
+        
         scene = new Scene(loadFXML("view/primary"), 640, 480);
         stage.setScene(scene);
         stage.show();

@@ -16,12 +16,12 @@ public class PrimaryController implements Initializable{
     private Button primaryButton;
     @FXML
     private void switchToSecondary() throws IOException {
-        System.out.println(buyer.toString());
+//        System.out.println(buyer.toString());
         App.setRoot("view/secondary");
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        buyer = new Buyer("Francis", "this street", "04131651212");
+//        buyer = new Buyer("Francis", "this street", "04131651212");
     }
 }
