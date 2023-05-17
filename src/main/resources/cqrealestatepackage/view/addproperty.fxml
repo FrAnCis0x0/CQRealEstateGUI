@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="660.0" prefWidth="687.0" style="-fx-background-color: E6F7E9;" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="660.0" prefWidth="687.0" style="-fx-background-color: E6F7E9;" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cqrealestatepackage.controller.AddpropertyController">
    <children>
       <HBox alignment="CENTER" prefHeight="70.0" prefWidth="587.0">
          <children>
@@ -17,6 +19,21 @@
             </Text>
          </children>
       </HBox>
+      <Pane prefHeight="149.0" prefWidth="667.0" VBox.vgrow="ALWAYS" />
+      <VBox alignment="CENTER" prefHeight="419.0" prefWidth="667.0" styleClass="lightBackground">
+         <children>
+            <Pane layoutX="10.0" layoutY="111.0" prefHeight="80.0" prefWidth="9.0" />
+            <Button fx:id="btnLand" mnemonicParsing="false" onAction="#gotoLand" prefHeight="80.0" prefWidth="332.0" text="Land" />
+            <HBox alignment="CENTER" prefHeight="80.0" prefWidth="200.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="OR" />
+               </children>
+            </HBox>
+            <Button fx:id="btnLandAndHouse" mnemonicParsing="false" onAction="#gotoLandAndHouse" prefHeight="80.0" prefWidth="332.0" text="Land And House" />
+            <Pane layoutX="10.0" layoutY="80.0" prefHeight="80.0" prefWidth="9.0" />
+         </children>
+      </VBox>
+      <Pane layoutX="10.0" layoutY="100.0" prefHeight="149.0" prefWidth="667.0" VBox.vgrow="ALWAYS" />
    </children>
    <padding>
       <Insets bottom="20.0" right="20.0" top="20.0" />

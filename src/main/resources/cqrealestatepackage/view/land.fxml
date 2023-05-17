@@ -9,11 +9,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="660.0" prefWidth="687.0" styleClass="body" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="660.0" prefWidth="687.0" style="-fx-background-color: E6F7E9;" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <HBox alignment="CENTER" prefHeight="70.0" prefWidth="587.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header" text="Add Buyer">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header" text="Land">
                <font>
                   <Font size="24.0" />
                </font>
@@ -22,31 +22,31 @@
       </HBox>
       <HBox prefHeight="80.0" prefWidth="200.0">
          <children>
-            <VBox prefHeight="80.0" prefWidth="337.0" styleClass="lightBackground">
+            <VBox prefHeight="80.0" prefWidth="332.0" styleClass="lightBackground">
                <padding>
                   <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
                </padding>
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Lot Number">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="tfName" alignment="CENTER" promptText="Enter Username" styleClass="textInputFields" />
+                  <TextField alignment="CENTER" promptText="######" styleClass="textInputFields" />
                </children>
             </VBox>
             <Pane layoutX="10.0" layoutY="10.0" prefHeight="80.0" prefWidth="9.0" />
-            <VBox prefHeight="80.0" prefWidth="327.0" styleClass="lightBackground">
+            <VBox prefHeight="80.0" prefWidth="332.0" styleClass="lightBackground">
                <padding>
                   <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
                </padding>
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Mobile">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Land Area">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="tfPhone" alignment="CENTER" promptText="Phone Number" styleClass="textInputFields" />
+                  <TextField alignment="CENTER" promptText="Enter Area" styleClass="textInputFields" />
                </children>
             </VBox>
          </children>
@@ -61,21 +61,24 @@
                   <Font size="18.0" />
                </font>
             </Text>
-            <TextField fx:id="tfAddress" alignment="CENTER" promptText="Enter Address" styleClass="textInputFields" />
+            <TextField alignment="CENTER" promptText="Enter Address" styleClass="textInputFields">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin></TextField>
          </children>
-         <VBox.margin>
-            <Insets right="15.0" top="8.0" />
-         </VBox.margin>
-      </VBox>
-      <HBox prefHeight="80.0" prefWidth="200.0">
          <VBox.margin>
             <Insets top="8.0" />
          </VBox.margin>
+      </VBox>
+      <HBox prefHeight="80.0" prefWidth="200.0">
          <children>
-            <Button fx:id="btnSave" mnemonicParsing="false" prefHeight="80.0" prefWidth="332.0" text="Save" />
+            <Button mnemonicParsing="false" prefHeight="80.0" prefWidth="332.0" text="Save" />
             <Pane prefHeight="200.0" prefWidth="9.0" />
-            <Button fx:id="btnClear" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="332.0" styleClass="lightBackground" text="Clear" />
+            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="332.0" styleClass="lightBackground" text="Clear" />
          </children>
+         <VBox.margin>
+            <Insets top="8.0" />
+         </VBox.margin>
       </HBox>
    </children>
    <padding>
