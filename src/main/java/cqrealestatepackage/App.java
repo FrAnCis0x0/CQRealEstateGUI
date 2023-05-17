@@ -22,7 +22,7 @@ public class App extends Application {
         
         dataHandler = new DataHandler();
         
-        scene = new Scene(loadFXML("view/primary"), 640, 480);
+        scene = new Scene(loadFXML("view/main"));
         stage.setScene(scene);
         stage.show();
     }
