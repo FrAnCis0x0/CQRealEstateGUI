@@ -4,6 +4,7 @@
  */
 package cqrealestatepackage.controller;
 
+import cqrealestatepackage.model.BorderPaneInfo;
 import cqrealestatepackage.model.NavigateToScene;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -81,6 +82,7 @@ public class MainController implements Initializable {
     private void navigateTo(String name){
         Pane view = navToScene.getFxml(name);
         mainBorderPane.setCenter(view);
+        BorderPaneInfo.borderPane = mainBorderPane;
     }
     
 }
