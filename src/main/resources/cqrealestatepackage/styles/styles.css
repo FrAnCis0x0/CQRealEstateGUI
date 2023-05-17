@@ -1,0 +1,16 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 17 May 2023, 5:26:42 pm
+    Author     : renza
+*/
+
+
+.header{
+    -fx-fill: green;
+    -fx-font-weight: Bold;
+    -fx-font-family: "Arial";
+    -fx-font-size: 24px;
+}
