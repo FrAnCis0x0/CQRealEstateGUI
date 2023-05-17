@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox prefHeight="660.0" prefWidth="687.0" style="-fx-background-color: E6F7E9;" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox alignment="CENTER" prefHeight="70.0" prefWidth="587.0" stylesheets="@../styles/styles.css">
+         <children>
+            <Text fill="#945151" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header" text="Dashboard">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+         </children>
+      </HBox>
+   </children>
+   <padding>
+      <Insets bottom="20.0" right="20.0" top="20.0" />
+   </padding>
+</VBox>
