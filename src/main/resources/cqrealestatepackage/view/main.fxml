@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane fx:id="mainBorderPane" prefHeight="700.0" prefWidth="1100.0" style="-fx-background-color: E6F7E9;" xmlns="http://javafx.com/javafx/13" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cqrealestatepackage.controller.MainController">
+<BorderPane fx:id="mainBorderPane" prefHeight="700.0" prefWidth="1100.0" style="-fx-background-color: E6F7E9;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cqrealestatepackage.controller.MainController">
    <left>
       <HBox BorderPane.alignment="CENTER">
          <BorderPane.margin>
@@ -79,22 +79,4 @@
          </children>
       </HBox>
    </left>
-   <center>
-      <VBox prefHeight="660.0" prefWidth="687.0" style="-fx-background-color: E6F7E9;" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets bottom="20.0" right="20.0" top="20.0" />
-         </BorderPane.margin>
-         <children>
-            <HBox alignment="CENTER" prefHeight="70.0" prefWidth="587.0">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Text>
-               </children>
-            </HBox>
-         </children>
-      </VBox>
-   </center>
 </BorderPane>
