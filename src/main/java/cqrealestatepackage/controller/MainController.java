@@ -57,6 +57,8 @@ public class MainController implements Initializable {
 
     @FXML
     private void gotoMakeASale(ActionEvent event) {
+        //Todo check if properties and users exist
+        
         navigateTo("makeasale");
 
     }
@@ -76,13 +78,14 @@ public class MainController implements Initializable {
     @FXML
     private void gotoAddProperty(ActionEvent event) {
         navigateTo("addproperty");
+        BorderPaneInfo.borderPane = mainBorderPane;
+
 
     }
     
     private void navigateTo(String name){
         Pane view = navToScene.getFxml(name);
         mainBorderPane.setCenter(view);
-        BorderPaneInfo.borderPane = mainBorderPane;
     }
     
 }
