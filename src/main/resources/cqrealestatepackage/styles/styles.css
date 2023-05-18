@@ -15,6 +15,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-font-size: 24px;
 }
 
+.invalidInput{
+    /** TO DO 
+      this is not working!!!!!
+    **/
+
+    -fx-border-color: transparent transparent #00ff00 transparent;
+
+   
+}
+
 .lightBackground{
     -fx-background-color: #DCEDDF;
     
