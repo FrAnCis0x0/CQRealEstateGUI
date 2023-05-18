@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="660.0" prefWidth="687.0" style="-fx-background-color: E6F7E9;" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="660.0" prefWidth="687.0" style="-fx-background-color: E6F7E9;" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cqrealestatepackage.controller.MakeasaleController">
    <children>
       <HBox alignment="CENTER" prefHeight="70.0" prefWidth="587.0">
          <children>
@@ -90,7 +90,7 @@
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <DatePicker fx:id="dpDate" editable="false" prefHeight="39.0" prefWidth="294.0" promptText="Select Date" styleClass="textInputFields">
+                  <DatePicker fx:id="dpDate" prefHeight="39.0" prefWidth="294.0" promptText="DD / MM / YYYY" styleClass="textInputFields">
                      <cursor>
                         <Cursor fx:constant="DEFAULT" />
                      </cursor></DatePicker>
@@ -114,7 +114,7 @@
                      </font></Text>
                </children>
             </HBox>
-            <TableView fx:id="tableView" prefHeight="228.0" prefWidth="667.0">
+            <TableView fx:id="tvProperties" prefHeight="228.0" prefWidth="667.0">
               <columns>
                 <TableColumn prefWidth="75.0" text="C1" />
                 <TableColumn prefWidth="75.0" text="C2" />
@@ -124,9 +124,9 @@
       </VBox>
       <HBox prefHeight="80.0" prefWidth="200.0">
          <children>
-            <Button fx:id="btnSave" mnemonicParsing="false" prefHeight="80.0" prefWidth="332.0" text="Save" />
+            <Button fx:id="btnSave" mnemonicParsing="false" onAction="#save" prefHeight="80.0" prefWidth="332.0" text="Save" />
             <Pane prefHeight="200.0" prefWidth="9.0" />
-            <Button fx:id="btnClear" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="346.0" styleClass="lightBackground" text="Clear" />
+            <Button fx:id="btnClear" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#clearInputFields" prefHeight="80.0" prefWidth="346.0" styleClass="lightBackground" text="Clear" />
          </children>
          <VBox.margin>
             <Insets top="8.0" />
