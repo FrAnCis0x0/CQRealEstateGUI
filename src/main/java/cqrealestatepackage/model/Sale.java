@@ -14,16 +14,16 @@ public class Sale {
     private String date;
     private double soldPrice;
     private Land property;
-    private Seller seller;
-    private Buyer buyer;
+    private String sellerName;
+    private String buyerName;
 
-    public Sale(Land property, String date, double soldPrice,  Seller seller, Buyer buyer) {
+    public Sale(Land property, String date, double soldPrice,  String sellerName, String buyerName) {
         this.saleID += tempID;
         this.date = date;
         this.soldPrice = soldPrice;
         this.property = property;
-        this.seller = seller;
-        this.buyer = buyer;
+        this.sellerName = sellerName;
+        this.buyerName = buyerName;
         tempID += 1;
         markPropertyAsSold();
     }
@@ -61,25 +61,11 @@ public class Sale {
         this.property = property;
     }
 
-    public Seller getSeller() {
-        return seller;
-    }
-
-    public void setSeller(Seller seller) {
-        this.seller = seller;
-    }
-
-    public Buyer getBuyer() {
-        return buyer;
-    }
-
-    public void setBuyer(Buyer buyer) {
-        this.buyer = buyer;
-    }
+   
     
     @Override
     public String toString() {
-        return  "SaleID: " + saleID +", Seller Name: " + seller.getName() + ", Buyer Name: " + buyer.getName()+ ", Date: " + date + ", Sold Price: " + soldPrice + ", Property: " + property;
+        return  "SaleID: " + saleID +", Seller Name: " + sellerName + ", Buyer Name: " + buyerName+ ", Date: " + date + ", Sold Price: " + soldPrice + ", Property: " + property;
     }
     
     
