@@ -25,8 +25,8 @@ public class FileManager<F> {
     }
     
     //get item from array with specified index
-    public void getItem(int index){
-        System.out.println(dataArray.get(index));
+    public F getItem(int index){
+       return dataArray.get(index);
     }
     
     //return arrayList
