@@ -27,7 +27,7 @@ public class BarChartInfo {
 
     public BarChartInfo(BarChart myBar, ArrayList<Double> land, ArrayList<Double> landAndHouse) {
         this.myBar = myBar;
-        this.myBar.setTitle("Sales Statitics");
+        this.myBar.setTitle("Sales Statistics");
         this.myBar.setCategoryGap(20);
         this.myBar.maxHeight(1000);
         
