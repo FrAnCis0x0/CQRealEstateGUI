@@ -13,6 +13,7 @@ public class Land {
     private String address;
     private double landArea;
     private boolean sold = false;
+    private String propertyType;
 
 
 
@@ -20,6 +21,7 @@ public class Land {
         this.lotNumber = lotNumber;
         this.landArea = landArea;
         this.address = address;
+        this.propertyType = getClass().getSimpleName();
     
     }
     public boolean isSold() {
@@ -53,14 +55,18 @@ public class Land {
     public double getLandArea() {
         return landArea;
     }
+    
+    public String getPropertyType() {
+        return propertyType;
+    }
 
     public void setLandArea(double landArea) {
         this.landArea = landArea;
     }
-    
+
     @Override
     public String toString(){
-        return "Property Type: "+getClass().getSimpleName()+", Lot Number: "+lotNumber+", Land Area: "+ landArea+", Address: "+address+ ", Sold: "+getSoldString();
+        return "Property Type: "+propertyType+", Lot Number: "+lotNumber+", Land Area: "+ landArea+", Address: "+address+ ", Sold: "+getSoldString();
     }
     
 }
