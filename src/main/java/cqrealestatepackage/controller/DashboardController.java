@@ -4,6 +4,7 @@
  */
 package cqrealestatepackage.controller;
 
+import cqrealestatepackage.App;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -28,7 +29,7 @@ public class DashboardController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        App.dataHandler.getStatitics(dashboardBarChart);
     }    
     
 }
