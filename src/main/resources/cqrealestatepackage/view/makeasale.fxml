@@ -5,7 +5,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
@@ -114,12 +113,7 @@
                      </font></Text>
                </children>
             </HBox>
-            <TableView fx:id="tvProperties" prefHeight="228.0" prefWidth="667.0">
-              <columns>
-                <TableColumn prefWidth="75.0" text="C1" />
-                <TableColumn prefWidth="75.0" text="C2" />
-              </columns>
-            </TableView>
+            <TableView fx:id="tvProperties" focusTraversable="false" prefHeight="228.0" prefWidth="667.0" stylesheets="@../styles/styles.css" />
          </children>
       </VBox>
       <HBox prefHeight="80.0" prefWidth="200.0">

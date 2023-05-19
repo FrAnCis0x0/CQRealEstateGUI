@@ -48,6 +48,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-border-width: 2;
     
 }
+.textInputFields-error:focused {
+
+    -fx-border-color: transparent transparent #00ff00 transparent;
+    -fx-border-width: 2;
+    
+}
 
 .body{
     -fx-background-color:  #E6F7E9;

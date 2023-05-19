@@ -5,5 +5,6 @@ module cqrealestatepackage {
 
     opens cqrealestatepackage to javafx.fxml;
     opens cqrealestatepackage.controller to javafx.fxml;
+    opens cqrealestatepackage.model to javafx.base;
     exports cqrealestatepackage;
 }

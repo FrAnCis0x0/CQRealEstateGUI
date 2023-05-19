@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
-<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -40,7 +42,18 @@
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header" text="Recent Sales" />
                </children>
             </HBox>
-            <ListView fx:id="dashboardListView" prefHeight="213.0" prefWidth="667.0" />
+            <TableView fx:id="mainTableView" focusTraversable="false" prefHeight="200.0" prefWidth="200.0">
+              <columns>
+                <TableColumn fx:id="columnDate" prefWidth="105.0" sortType="DESCENDING" text="Date" />
+                <TableColumn fx:id="columnPropertyType" editable="false" prefWidth="122.0" sortType="DESCENDING" text="Property Type" />
+                  <TableColumn fx:id="columnPrice" prefWidth="111.0" text="Price" />
+                  <TableColumn fx:id="columnSeller" minWidth="0.0" prefWidth="109.0" text="Seller" />
+                  <TableColumn fx:id="columnBuyer" prefWidth="100.0" text="Buyer" />
+              </columns>
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
+            </TableView>
          </children>
          <VBox.margin>
             <Insets top="8.0" />
