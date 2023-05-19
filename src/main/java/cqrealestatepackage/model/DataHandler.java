@@ -16,17 +16,19 @@ import javafx.scene.control.TextField;
  */
 public class DataHandler {
     public FileManager<Sale> sales;
-    public FileManager<Buyer> buyers;
-    public FileManager<Seller> sellers;
+//    public FileManager<Buyer> buyers;
+//    public FileManager<Seller> sellers;
+    private FileManager<Clients> clients;
     public FileManager<Land> properties;
     
     private BarChartInfo barChartInfo;
     
     public DataHandler(){
-        sales  = new FileManager<>("salesData");
-        buyers = new FileManager<>("buyersData");
-        sellers = new FileManager<>("sellersData");
-        properties = new FileManager<>("propertyData");
+        sales  = new FileManager<>("PalesData");
+//        buyers = new FileManager<>("buyersData");
+//        sellers = new FileManager<>("sellersData");
+        clients = new FileManager<>("UserData");
+        properties = new FileManager<>("PropertyData");
         defaultData();
         
         
@@ -34,15 +36,15 @@ public class DataHandler {
     
         //collects data and adds new buyer object to buyers
     public void createNewBuyer(TextField tfName, TextField tfAddress, TextField tfPhoneNumber){
-        buyers.addNewItem(new Buyer(tfName.getText(), tfAddress.getText(), tfPhoneNumber.getText()));
+        clients.addNewItem(new Buyer(tfName.getText(), tfAddress.getText(), tfPhoneNumber.getText()));
     }
     //collects data and adds new seller object to sellers
     public void createNewSeller(TextField tfName, TextField tfAddress, TextField tfPhoneNumber){
-        sellers.addNewItem(new Seller(tfName.getText(), tfAddress.getText(), tfPhoneNumber.getText()));
+        clients.addNewItem(new Seller(tfName.getText(), tfAddress.getText(), tfPhoneNumber.getText()));
     }
     //collects data and adds new sale object to sales
     public void makeASale(Land property, DatePicker datepicker,String SellerName, TextField tfPrice, String BuyerName){
-        sales.addNewItem(new Sale(property, datepicker.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")), Integer.parseInt(tfPrice.getText()), SellerName, BuyerName));
+        sales.addNewItem(new Sale(property, datepicker.getValue().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")), Integer.parseInt(tfPrice.getText()), SellerName, BuyerName));
     }
     //collects data and adds new land object to properties
     public void AddNewLand(TextField tfLotNumber, TextField tfLandArea, TextField tfAddress){
@@ -54,19 +56,21 @@ public class DataHandler {
     }
     
     private void defaultData(){
-        buyers.addNewItem(new Buyer("Bob", "first street", "4545454545"));
-        sellers.addNewItem(new Seller("alice", "first street", "4545454545"));
+        clients.addNewItem(new Buyer("Bob", "first street", "4545454545"));
+        clients.addNewItem(new Seller("Alice", "first street", "4545454545"));
         
         properties.addNewItem(new Land(10000001, 2000, "hello world"));
         properties.addNewItem(new Land(10000002, 1000, "world"));
-        properties.addNewItem(new HouseAndLand(10000003, 2000, "hello world",1000,4,2));
-        properties.addNewItem(new HouseAndLand(10000004, 4000, "hello world",2000,8,4));
-        properties.addNewItem(new HouseAndLand(10000005, 8000, "hello world",4000,16,8));
+        properties.addNewItem(new HouseAndLand(10000003, 2000, "128 helloworld street",1000,4,2));
+        properties.addNewItem(new HouseAndLand(10000004, 4000, "64 bit rd",2000,8,4));
+        properties.addNewItem(new HouseAndLand(10000005, 8000, "32 bunny street",4000,16,8));
+        properties.addNewItem(new HouseAndLand(10000006, 2000, "16 carrot street",1000,4,2));
+        properties.addNewItem(new Land(10000007, 2000, "123 that st"));
         
-        sales.addNewItem( new Sale(properties.getItem(0), "18/05/2023",300000 , "Bob", "Alce"));
-        sales.addNewItem( new Sale(properties.getItem(1), "18/05/2026",150000 , "Bob2", "Alce2"));
-        sales.addNewItem( new Sale(properties.getItem(2), "18/05/2026",650000 , "Bob3", "Alce3"));
-        sales.addNewItem( new Sale(properties.getItem(3), "18/05/2026",1200000 , "Bob", "Alce"));
+        sales.addNewItem( new Sale(properties.getItem(0), "17/05/2023",300000 , "Bob", "Alice"));
+        sales.addNewItem( new Sale(properties.getItem(1), "18/05/2023",150000 , "Alice", "Jeff"));
+        sales.addNewItem( new Sale(properties.getItem(2), "19/05/2023",650000 , "Mike", "John Doe"));
+        sales.addNewItem( new Sale(properties.getItem(3), "20/05/2023",1200000 , "Miller", "Kira"));
     }
     
     
@@ -74,17 +78,42 @@ public class DataHandler {
     private ArrayList<Double> getSalePricesOf(String className){
         ArrayList<Double> temp = new ArrayList<>();
         for(Sale sale : sales.getArrayList()){
-            if(sale.getProperty().getClassInstanceName().equals(className)){
+            if(sale.getProperty().getPropertyType().equals(className)){
                 temp.add(sale.getSoldPrice());
             }
            
         }
         return temp;
     }
+   
     
     public void getStatitics(BarChart barChart){
         barChartInfo = new BarChartInfo(barChart, getSalePricesOf("Land"), getSalePricesOf("HouseAndLand"));
     }
+    
+    
+    public ArrayList<Land> getAllAvailableProperties(){
+        ArrayList<Land> tempArray = new ArrayList<>();
+        for(Land property : properties.getArrayList()){
+            if(!property.isSold()){
+                tempArray.add(property);
+            }
+        }
+        return tempArray;
+    }
+    
+    public ArrayList<String> getAllUsers(){
+        ArrayList<String> tempUserArray = new ArrayList<>();
+        
+        clients.getArrayList().forEach(user ->{
+            tempUserArray.add(user.getName());
+        });
+        
+        
+        return tempUserArray;
+    
+    }
+    
     
 
 }
