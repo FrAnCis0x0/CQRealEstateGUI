@@ -7,11 +7,13 @@ package cqrealestatepackage.controller;
 import cqrealestatepackage.model.BorderPaneInfo;
 import cqrealestatepackage.model.NavigateToScene;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -25,7 +27,7 @@ public class MainController implements Initializable {
 
     @FXML
     private BorderPane mainBorderPane;
-
+    
     @FXML
     private Button btnDashboard;
     @FXML
@@ -38,15 +40,21 @@ public class MainController implements Initializable {
     private Button btnAddProperty;
     
     private NavigateToScene navToScene;
-    
+    private ArrayList<Button> navButtonArray;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        navButtonArray = new ArrayList<>();
         navToScene = new NavigateToScene();
         navigateTo("dashboard");
+        navButtonArray.add(btnDashboard);
+        navButtonArray.add(btnMakeASale);
+        navButtonArray.add(btnAddBuyer);
+        navButtonArray.add(btnAddSeller);
+        navButtonArray.add(btnAddProperty);
+        
         
     }    
 
