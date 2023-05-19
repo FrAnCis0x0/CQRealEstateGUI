@@ -21,7 +21,8 @@ public class NavigateToScene {
             view = loader.load();
         }
         catch(Exception e){
-            System.out.println("File "+name+" not found ");
+            e.printStackTrace();
+            
         }
         
         return view;
