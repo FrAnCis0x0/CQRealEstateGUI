@@ -17,6 +17,7 @@ public class Sale {
     private String sellerName;
     private String buyerName;
 
+
     public Sale(Land property, String date, double soldPrice,  String sellerName, String buyerName) {
         this.saleID += tempID;
         this.date = date;
@@ -26,6 +27,13 @@ public class Sale {
         this.buyerName = buyerName;
         tempID += 1;
         markPropertyAsSold();
+    }
+    public String getSellerName() {
+        return sellerName;
+    }
+
+    public String getBuyerName() {
+        return buyerName;
     }
     
     private void markPropertyAsSold(){
@@ -55,6 +63,9 @@ public class Sale {
 
     public Land getProperty() {
         return property;
+    }
+    public String getPropertyType() {
+        return property.getPropertyType();
     }
 
     public void setProperty(Land property) {
