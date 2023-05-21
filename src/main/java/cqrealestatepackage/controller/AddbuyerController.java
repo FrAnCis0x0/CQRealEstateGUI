@@ -5,7 +5,6 @@
 package cqrealestatepackage.controller;
 
 import cqrealestatepackage.App;
-import cqrealestatepackage.model.Buyer;
 import cqrealestatepackage.model.InputFieldHandler;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -40,24 +39,21 @@ public class AddbuyerController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-        inputHandler = new InputFieldHandler();
+        inputHandler = new InputFieldHandler();//holds function for validating inputs
         inputHandler.addAllTextFields(tfAddress, tfName, tfPhone); //add all text fields to inputhandler
+        inputHandler.addListenerOnFocus();
+        inputHandler.addIntegerListenerOnFocus(tfPhone);
     }    
     
     @FXML
     private void save(ActionEvent event) {
         //check if all textfields have valid data
         if(inputHandler.textFieldsHaveValue() && inputHandler.tfMustBeInteger(tfPhone)){
-           App.dataHandler.createNewBuyer(tfName, tfAddress, tfPhone); //save data to file
+            App.dataHandler.createNewBuyer(tfName, tfAddress, tfPhone); //save data to file
+            inputHandler.clear(); // clear data in text fields
+
         }else{
-            
-           
             inputHandler.showEmptyTextField(); // change borders to red
-          
-                
-                //TODO - Show tooltip
-            
         }
         
     }

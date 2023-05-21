@@ -6,7 +6,6 @@ package cqrealestatepackage.controller;
 
 import cqrealestatepackage.App;
 import cqrealestatepackage.model.InputFieldHandler;
-import cqrealestatepackage.model.Seller;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -42,21 +41,23 @@ public class AddsellerController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-        inputHandler = new InputFieldHandler();
+        inputHandler = new InputFieldHandler();//holds function for validating inputs
         inputHandler.addAllTextFields(tfAddress, tfName, tfPhone);
+        inputHandler.addListenerOnFocus();//add listener to all textFields
+        inputHandler.addIntegerListenerOnFocus(tfPhone); //listen to make sure tfPhone is number
     }    
     
     @FXML
     private void save(ActionEvent event) {
+        //make sure all inputs are valid before saving an object
         if(inputHandler.textFieldsHaveValue() && inputHandler.tfIsInteger(tfPhone)){
-           App.dataHandler.createNewSeller(tfName, tfAddress, tfPhone); //save data to file
+            App.dataHandler.createNewSeller(tfName, tfAddress, tfPhone); //save data to file
+            inputHandler.clear();//clear all input fields
+
         }else{
            
             inputHandler.showEmptyTextField(); // change borders to red
-          
                 
-                //TODO - Show tooltip
         }
         
     }
