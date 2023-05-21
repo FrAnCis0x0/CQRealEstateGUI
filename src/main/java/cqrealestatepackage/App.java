@@ -18,17 +18,14 @@ public class App extends Application {
     public static DataHandler dataHandler;
 
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) throws IOException, ClassNotFoundException {
         
         dataHandler = new DataHandler();
         
         scene = new Scene(loadFXML("view/main"));
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
-    }
-
-    public static void setRoot(String fxml) throws IOException {
-        scene.setRoot(loadFXML(fxml));
     }
 
     private static Parent loadFXML(String fxml) throws IOException {
