@@ -16,20 +16,15 @@ import javafx.scene.control.TextField;
  */
 public class DataHandler {
     public FileManager<Sale> sales;
-//    public FileManager<Buyer> buyers;
-//    public FileManager<Seller> sellers;
     private FileManager<Clients> clients;
     public FileManager<Land> properties;
     
     private BarChartInfo barChartInfo;
     
-    public DataHandler(){
-        sales  = new FileManager<>("PalesData");
-//        buyers = new FileManager<>("buyersData");
-//        sellers = new FileManager<>("sellersData");
-        clients = new FileManager<>("UserData");
-        properties = new FileManager<>("PropertyData");
-        defaultData();
+    public DataHandler() throws ClassNotFoundException{
+        sales  = new FileManager<>("SalesData.txt");
+        clients = new FileManager<>("UserData.txt");
+        properties = new FileManager<>("PropertyData.txt");
         
         
     }
@@ -55,28 +50,10 @@ public class DataHandler {
         properties.addNewItem(new HouseAndLand(Integer.parseInt(tfLotNumber.getText()), Integer.parseInt(tfLandArea.getText()), tfAddress.getText(), Integer.parseInt(tfConstructionArea.getText()), Integer.parseInt(tfBedrooms.getText()), Integer.parseInt(tfToilets.getText())));
     }
     
-    private void defaultData(){
-        clients.addNewItem(new Buyer("Bob", "first street", "4545454545"));
-        clients.addNewItem(new Seller("Alice", "first street", "4545454545"));
-        
-        properties.addNewItem(new Land(10000001, 2000, "hello world"));
-        properties.addNewItem(new Land(10000002, 1000, "world"));
-        properties.addNewItem(new HouseAndLand(10000003, 2000, "128 helloworld street",1000,4,2));
-        properties.addNewItem(new HouseAndLand(10000004, 4000, "64 bit rd",2000,8,4));
-        properties.addNewItem(new HouseAndLand(10000005, 8000, "32 bunny street",4000,16,8));
-        properties.addNewItem(new HouseAndLand(10000006, 2000, "16 carrot street",1000,4,2));
-        properties.addNewItem(new Land(10000007, 2000, "123 that st"));
-        
-        sales.addNewItem( new Sale(properties.getItem(0), "17/05/2023",300000 , "Bob", "Alice"));
-        sales.addNewItem( new Sale(properties.getItem(1), "18/05/2023",150000 , "Alice", "Jeff"));
-        sales.addNewItem( new Sale(properties.getItem(2), "19/05/2023",650000 , "Mike", "John Doe"));
-        sales.addNewItem( new Sale(properties.getItem(3), "20/05/2023",1200000 , "Miller", "Kira"));
-    }
-    
-    
-    
+    //get all prices of Property Type
     private ArrayList<Double> getSalePricesOf(String className){
         ArrayList<Double> temp = new ArrayList<>();
+        //add sales of className to temp
         for(Sale sale : sales.getArrayList()){
             if(sale.getProperty().getPropertyType().equals(className)){
                 temp.add(sale.getSoldPrice());

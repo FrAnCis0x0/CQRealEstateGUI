@@ -5,7 +5,6 @@
 package cqrealestatepackage.model;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.NoSuchElementException;
 import javafx.scene.chart.BarChart;
@@ -17,7 +16,7 @@ import javafx.scene.chart.XYChart;
  */
 public class BarChartInfo {
 
-    BarChart myBar;
+    BarChart myBar; //stores Barchart
     ArrayList<Double> land;
     ArrayList<Double> landAndHouse;
 
@@ -41,45 +40,44 @@ public class BarChartInfo {
         setBarChartData();
 
     }
-
+//find minimum and add it to series1
     private void getMinimum() {
         series1.setName("Minimum");
+        //try finding minimum value in land
         try{
             series1.getData().add(new XYChart.Data("Land", Collections.min(land)));
-        }
+        }//if land is empty
         catch(NoSuchElementException e){
             series1.getData().add(new XYChart.Data("Land", 0));
         }
         
-        
+        //try finding minimum in landAndHouse
         try{
             series1.getData().add(new XYChart.Data("Land And House", Collections.min(landAndHouse)));
-        }
+        }//if LandAndHouse is empty
         catch(NoSuchElementException e){
             series1.getData().add(new XYChart.Data("Land And House", 0));
         }
 
 
     }
-
+    //calls calculateAverage function that returns the avarage value
     private void getAverage() {
         series2.setName("Average");
-       
-        
-
         series2.getData().add(new XYChart.Data("Land", calculateAverage(land)));
 
         series2.getData().add(new XYChart.Data("Land And House", calculateAverage(landAndHouse)));
 
     }
 
+    //gets maximum by calling checkAndAdd which takes in series, array and name to find maximum
     private void getMaximum() {
         series3.setName("Maximum");
         checkAndAdd(series3, land, "Land");
         checkAndAdd(series3, landAndHouse, "Land And House");
 
     }
-    
+    //calculate maximum
     private void checkAndAdd(XYChart.Series s, ArrayList<Double> myArray, String xName){
         if(myArray.isEmpty()){
              s.getData().add(new XYChart.Data(xName, 0));
@@ -89,7 +87,7 @@ public class BarChartInfo {
         
         
     }
-
+    //calculates average and makes sure it returns the correct value
     private double calculateAverage(ArrayList<Double> arrayName) {
         int sum = 0;
         for (double price : arrayName) {
@@ -99,7 +97,7 @@ public class BarChartInfo {
         return (arrayName.isEmpty())? 0:(double) (sum / arrayName.size());
 
     }
-
+    //assigns all value to the provided BarChart
     private void setBarChartData() {
         getMinimum();
         getAverage();

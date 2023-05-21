@@ -4,11 +4,13 @@
  */
 package cqrealestatepackage.model;
 
+import java.io.Serializable;
+
 /**
  * @author Francis Renzaho
  * Student ID: 12170110
  */
-public class Sale {
+public class Sale implements Serializable{
     private static int tempID;
     private int saleID = 1101;
     private String date;

@@ -4,6 +4,12 @@
  */
 package cqrealestatepackage.model;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 /**
@@ -12,9 +18,9 @@ import java.util.ArrayList;
  */
 public class FileManager<F> {
     private String fileName; //stores file name
-    private final ArrayList<F> dataArray = new ArrayList<>(); //stores older and new data
+    private ArrayList<F> dataArray = new ArrayList<>(); //stores older and new data
 
-    public FileManager(String fileName) {
+    public FileManager(String fileName) throws ClassNotFoundException {
         this.fileName = fileName;
         readFile();
     }
@@ -36,12 +42,36 @@ public class FileManager<F> {
     
     //save data to file
     private void saveArrayToFile(){
-        System.out.println("Saved to File");
+        try{
+            FileOutputStream fos = new FileOutputStream(fileName);
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(dataArray);
+            oos.close();
+            fos.close();
+        }catch(IOException ioe){
+            ioe.printStackTrace();
+        }
     }
     
     //read data from file and store it into an array
-    private void readFile(){
-        System.out.println("Reading... "+fileName);
+    private void readFile() throws ClassNotFoundException{
+        try{
+            File dataFile = new File(fileName);
+            if(dataFile.isFile() && dataFile.canRead()){
+                
+                FileInputStream fis = new FileInputStream(dataFile);
+                ObjectInputStream ois = new ObjectInputStream(fis);
+                dataArray = (ArrayList<F>)ois.readObject();
+                ois.close();
+                fis.close();
+            
+            }
+
+        }
+        catch(IOException ioe){
+            ioe.printStackTrace();
+        }
+       
     }
     
 }

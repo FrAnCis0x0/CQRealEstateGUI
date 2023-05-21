@@ -4,14 +4,12 @@
  */
 package cqrealestatepackage.controller;
 
-import cqrealestatepackage.App;
 import cqrealestatepackage.model.BorderPaneInfo;
 import cqrealestatepackage.model.NavigateToScene;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 
 import javafx.scene.control.Button;

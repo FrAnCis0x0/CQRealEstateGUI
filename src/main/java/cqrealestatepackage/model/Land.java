@@ -4,11 +4,13 @@
  */
 package cqrealestatepackage.model;
 
+import java.io.Serializable;
+
 /**
  * @author Francis Renzaho
  * Student ID: 12170110
  */
-public class Land {
+public class Land implements Serializable{
     private int lotNumber;
     private String address;
     private double landArea;

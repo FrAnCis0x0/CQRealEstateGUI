@@ -4,11 +4,13 @@
  */
 package cqrealestatepackage.model;
 
+import java.io.Serializable;
+
 /**
  * @author Francis Renzaho
  * Student ID: 12170110
  */
-public abstract class Clients {
+public abstract class Clients implements Serializable {
     private static int tempID;
     private int clientID = 1;
     private String clientType = getClass().getSimpleName();

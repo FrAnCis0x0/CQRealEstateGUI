@@ -7,8 +7,10 @@ package cqrealestatepackage.model;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
+import javafx.beans.value.ChangeListener;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
 /**
@@ -18,11 +20,9 @@ import javafx.scene.control.TextField;
 public class InputFieldHandler {
     private ArrayList<TextField> tfArray;//Stores textField objects
     private ArrayList<TextField> emptyTextField; //stores input fields that still reqquire data
-    private ComboBox[] comboList;
     public InputFieldHandler(){
         this.tfArray = new ArrayList<>();
         this.emptyTextField = new ArrayList<>();
-        comboList = new ComboBox[2];
     }
     //Adds one textfield object to tfArray
     public void addTextField(TextField tf){
@@ -46,8 +46,8 @@ public class InputFieldHandler {
     
     public boolean choiceSelected(ComboBox... cb){
         for(ComboBox comboBox : cb){
+            changeBorderColor(comboBox);
             if(comboBox.getValue() == null){
-                changeBorderColor(comboBox);
                 return false;
             }
         }
@@ -63,7 +63,7 @@ public class InputFieldHandler {
         return tf.getText().matches("[0-9]+");
     }
     
-    public boolean numberNumberNotTooBig(TextField tf){
+    public boolean numberNotTooBig(TextField tf){
         try{
             int temp = Integer.parseInt(tf.getText());
             return true;
@@ -94,14 +94,11 @@ public class InputFieldHandler {
     public boolean isDateValid(DatePicker dp){
         //make sure date is not null and the selected date is not a past date
         if(dp.getValue() != null && validateDate(dp.getValue())){
+            dp.setStyle("-fx-border-color: #00ff00; -fx-border-width: 2;");
             return true;
         }else{
-            //date selected is in the past
-            if(dp.getValue() != null && !validateDate(dp.getValue())){
-                System.out.println("Show tooltip");
-            }
-            
-            System.out.println("Invalid date.. Color change");
+          
+            dp.setStyle("-fx-border-color: red; -fx-border-width: 3;");
             return false;
             
         }
@@ -122,18 +119,24 @@ public class InputFieldHandler {
     }
     
     public void changeBorderColor(TextField tf){
-        tf.getStyleClass().remove("textInputFields:focused");
+        tf.getStyleClass().remove("textInputFields");
         tf.getStyleClass().add("invalidInput");
-        
-        System.out.println("Change Input Color ERROR - Emp");
+        tf.applyCss();
+
     }
     
     
     public void changeBorderColor(ComboBox cb){
-        cb.getStyleClass().remove("textInputFields");
-        cb.getStyleClass().add("invalidInput");
-        
-        System.out.println("Change Input Color ERROR - Emp");
+        if(cb.getValue() == null){
+            
+            cb.getStyleClass().remove("textInputFields");
+            cb.getStyleClass().add("invalidInput");
+
+        }else{
+            cb.getStyleClass().remove("invalidInput");
+            cb.getStyleClass().add("textInputFields");
+            
+        }
     }
     
     
@@ -141,8 +144,82 @@ public class InputFieldHandler {
     //clears data from all Text Fields in tfArray
     public void clear(){
         tfArray.forEach(tf ->{
+            if(tf.getStyleClass().contains("invalidInput")){
+                tf.getStyleClass().remove("invalidInput");
+                tf.getStyleClass().add("textInputFields");
+            }
             tf.clear();
+            tf.setStyle("-fx-focus-color: #616161");
+            tf.applyCss();
         });
     }
     
+    public void addListenerOnFocus(){
+        for(TextField item : tfArray){
+            ChangeListener<String> textChangeListener = (observable, oldValue, newValue) -> {
+            if (newValue.isEmpty()) {
+                item.setStyle("-fx-border-color: red; -fx-border-width: 3 ;");
+            } else {
+                item.setStyle("-fx-border-color: #00ff00; -fx-border-width: 2;");
+            }
+            };
+            
+            item.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue) {
+                item.textProperty().addListener(textChangeListener);
+            } else {
+                item.textProperty().removeListener(textChangeListener);
+            }
+            });
+            
+        }
+    }
+    
+    public void addIntegerListenerOnFocus(TextField tf){
+        
+        ChangeListener<String> textChangeListener = (observable, oldValue, newValue) -> {
+        if (newValue.isEmpty() || !tfIsInteger(tf)) {
+            tf.setStyle("-fx-border-color: red; -fx-border-width: 3;");
+        } else {
+            tf.setStyle("-fx-border-color: #00ff00; -fx-border-width: 2;");
+        }
+        };
+
+        tf.focusedProperty().addListener((observable, oldValue, newValue) -> {
+        if (newValue) {
+            tf.textProperty().addListener(textChangeListener);
+        } else {
+            tf.textProperty().removeListener(textChangeListener);
+        }
+        });
+            
+        
+    }
+    
+    
+  public boolean isPropertySelected(TableView tvProperties){
+      // Add a listener to the selected item property
+            tvProperties.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+          if (newValue == null) {
+              // Apply the style if no item is selected
+              tvProperties.getStyleClass().remove("tvWithSelection");
+              tvProperties.getStyleClass().add("tvNoSelection");
+          } else {
+              // Apply the style if an item is selected
+              tvProperties.getStyleClass().remove("tvNoSelection");
+              tvProperties.getStyleClass().add("tvWithSelection");
+          }
+      });
+        //this does the same thing as the listener
+        //but the listener can only be trigger when a user clicks the tableview
+        //So this runs first
+        if(tvProperties.getSelectionModel().getSelectedItem() == null){
+            tvProperties.getStyleClass().add("tvNoSelection");
+            return false;
+        } else {
+            tvProperties.getStyleClass().add("tvWithSelection");
+            return true;
+        }
+        
+  }
 }
