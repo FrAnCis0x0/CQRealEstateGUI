@@ -41,6 +41,7 @@ public class MainController implements Initializable {
     
     private NavigateToScene navToScene;
     private ArrayList<Button> navButtonArray;
+    private int currentBtn;
     /**
      * Initializes the controller class.
      */
@@ -48,24 +49,30 @@ public class MainController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         navButtonArray = new ArrayList<>();
         navToScene = new NavigateToScene();
-        navigateTo("dashboard");
+        BorderPaneInfo.borderPane = mainBorderPane;
+
+        currentBtn = -1;
         navButtonArray.add(btnDashboard);
         navButtonArray.add(btnMakeASale);
         navButtonArray.add(btnAddBuyer);
         navButtonArray.add(btnAddSeller);
         navButtonArray.add(btnAddProperty);
+        navigateTo("dashboard");
+        changeButtonColor(0);
         
         
     }    
 
     @FXML
     private void gotoDashboard(ActionEvent event) {
+        changeButtonColor(0);
         navigateTo("dashboard");
     }
 
     @FXML
     private void gotoMakeASale(ActionEvent event) {
         //Todo check if properties and users exist
+        changeButtonColor(1);
         
         navigateTo("makeasale");
 
@@ -73,21 +80,23 @@ public class MainController implements Initializable {
 
     @FXML
     private void gotoAddBuyer(ActionEvent event) {
+        changeButtonColor(2);
         navigateTo("addbuyer");
 
     }
 
     @FXML
     private void gotoAddSeller(ActionEvent event) {
+        changeButtonColor(3);
         navigateTo("addseller");
 
     }
 
     @FXML
     private void gotoAddProperty(ActionEvent event) {
+        changeButtonColor(4);
         navigateTo("addproperty");
-        BorderPaneInfo.borderPane = mainBorderPane;
-
+        
 
     }
     
@@ -96,4 +105,18 @@ public class MainController implements Initializable {
         mainBorderPane.setCenter(view);
     }
     
+    private void changeButtonColor(int btnIndex){
+        if(currentBtn != btnIndex){
+            navButtonArray.get(btnIndex).getStyleClass().add("btnClick");
+            navButtonArray.get(btnIndex).getStyleClass().remove("btn");
+
+        }
+
+        if(currentBtn >= 0 && currentBtn != btnIndex){
+            navButtonArray.get(currentBtn).getStyleClass().remove("btnClick");
+            navButtonArray.get(currentBtn).getStyleClass().add("btn");
+        }
+        currentBtn = btnIndex;
+
+    }
 }
