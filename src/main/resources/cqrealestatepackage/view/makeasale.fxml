@@ -7,127 +7,137 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="660.0" prefWidth="687.0" style="-fx-background-color: E6F7E9;" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cqrealestatepackage.controller.MakeasaleController">
+<AnchorPane xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cqrealestatepackage.controller.MakeasaleController">
    <children>
-      <HBox alignment="CENTER" prefHeight="70.0" prefWidth="587.0">
+      <VBox prefHeight="660.0" prefWidth="687.0" style="-fx-background-color: E6F7E9;" stylesheets="@../styles/styles.css" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header" text="Make A Sale">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Text>
-         </children>
-      </HBox>
-      <HBox alignment="CENTER" prefHeight="80.0" prefWidth="200.0" styleClass="lightBackground">
-         <children>
-            <VBox prefHeight="80.0" prefWidth="337.0" styleClass="lightBackground">
-               <padding>
-                  <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
-               </padding>
+            <HBox alignment="CENTER" prefHeight="70.0" prefWidth="587.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="From">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header" text="Make A Sale">
                      <font>
-                        <Font size="18.0" />
+                        <Font size="24.0" />
                      </font>
                   </Text>
-                  <ComboBox fx:id="cbSeller" prefHeight="44.0" prefWidth="295.0" promptText="Select Seller" styleClass="textInputFields">
-                     <cursor>
-                        <Cursor fx:constant="DEFAULT" />
-                     </cursor>
-                  </ComboBox>
-               </children>
-            </VBox>
-            <Pane layoutX="10.0" layoutY="10.0" prefHeight="80.0" prefWidth="9.0" />
-            <VBox prefHeight="80.0" prefWidth="327.0" styleClass="lightBackground">
-               <padding>
-                  <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
-               </padding>
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="To">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Text>
-                  <ComboBox fx:id="cbBuyer" prefHeight="44.0" prefWidth="295.0" promptText="Select Buyer" styleClass="textInputFields">
-                     <cursor>
-                        <Cursor fx:constant="DEFAULT" />
-                     </cursor>
-                  </ComboBox>
-               </children>
-            </VBox>
-         </children>
-      </HBox>
-      <HBox prefHeight="80.0" prefWidth="200.0">
-         <children>
-            <VBox prefHeight="80.0" prefWidth="332.0" styleClass="lightBackground">
-               <padding>
-                  <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
-               </padding>
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Price">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Text>
-                  <TextField fx:id="tfPrice" alignment="CENTER" prefHeight="36.0" prefWidth="250.0" promptText="Amount" styleClass="textInputFields" />
-               </children>
-            </VBox>
-            <Pane prefHeight="200.0" prefWidth="8.0" />
-            <VBox prefHeight="83.0" prefWidth="345.0" styleClass="lightBackground" HBox.hgrow="NEVER">
-               <padding>
-                  <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
-               </padding>
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Text>
-                  <DatePicker fx:id="dpDate" prefHeight="39.0" prefWidth="294.0" promptText="DD / MM / YYYY" styleClass="textInputFields">
-                     <cursor>
-                        <Cursor fx:constant="DEFAULT" />
-                     </cursor></DatePicker>
-               </children>
-            </VBox>
-         </children>
-         <VBox.margin>
-            <Insets top="8.0" />
-         </VBox.margin>
-      </HBox>
-      <VBox prefHeight="272.0" prefWidth="667.0">
-         <VBox.margin>
-            <Insets top="8.0" />
-         </VBox.margin>
-         <children>
-            <HBox alignment="CENTER" prefHeight="40.0" prefWidth="667.0" styleClass="lightBackground">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Available Properties">
-                     <font>
-                        <Font size="18.0" />
-                     </font></Text>
                </children>
             </HBox>
-            <TableView fx:id="tvProperties" focusTraversable="false" prefHeight="228.0" prefWidth="667.0" stylesheets="@../styles/styles.css" />
+            <HBox alignment="CENTER" prefHeight="80.0" prefWidth="200.0" styleClass="lightBackground">
+               <children>
+                  <VBox prefHeight="80.0" prefWidth="332.0" styleClass="lightBackground">
+                     <padding>
+                        <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
+                     </padding>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="From">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <ComboBox fx:id="cbSeller" prefHeight="44.0" prefWidth="295.0" promptText="Select Seller" styleClass="textInputFields">
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                        </ComboBox>
+                     </children>
+                  </VBox>
+                  <Pane layoutX="10.0" layoutY="10.0" prefHeight="80.0" prefWidth="9.0" />
+                  <VBox prefHeight="80.0" prefWidth="332.0" styleClass="lightBackground">
+                     <padding>
+                        <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
+                     </padding>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="To">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <ComboBox fx:id="cbBuyer" prefHeight="44.0" prefWidth="295.0" promptText="Select Buyer" styleClass="textInputFields">
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                        </ComboBox>
+                     </children>
+                  </VBox>
+               </children>
+               <VBox.margin>
+                  <Insets right="14.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="80.0" prefWidth="200.0">
+               <children>
+                  <VBox prefHeight="80.0" prefWidth="332.0" styleClass="lightBackground">
+                     <padding>
+                        <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
+                     </padding>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Price">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="tfPrice" alignment="CENTER" prefHeight="36.0" prefWidth="250.0" promptText="Amount" styleClass="textInputFields" />
+                     </children>
+                  </VBox>
+                  <Pane prefHeight="200.0" prefWidth="8.0" />
+                  <VBox prefHeight="83.0" prefWidth="332.0" styleClass="lightBackground">
+                     <padding>
+                        <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
+                     </padding>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <DatePicker fx:id="dpDate" focusTraversable="false" prefHeight="39.0" prefWidth="294.0" promptText="DD / MM / YYYY" styleClass="textInputFields">
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                        </DatePicker>
+                     </children>
+                  </VBox>
+               </children>
+               <VBox.margin>
+                  <Insets top="8.0" />
+               </VBox.margin>
+            </HBox>
+            <VBox prefHeight="272.0" prefWidth="664.0">
+               <VBox.margin>
+                  <Insets right="14.0" top="8.0" />
+               </VBox.margin>
+               <children>
+                  <HBox alignment="CENTER" prefHeight="40.0" prefWidth="687.0" styleClass="lightBackground" VBox.vgrow="NEVER">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Available Properties">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
+                  <TableView fx:id="tvProperties" focusTraversable="false" prefHeight="228.0" prefWidth="667.0" stylesheets="@../styles/styles.css" />
+               </children>
+            </VBox>
+            <HBox prefHeight="80.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="btnSave" mnemonicParsing="false" onAction="#save" prefHeight="80.0" prefWidth="332.0" text="Save" />
+                  <Pane prefHeight="200.0" prefWidth="9.0" />
+                  <Button fx:id="btnClear" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#clearInputFields" prefHeight="80.0" prefWidth="332.0" styleClass="lightBackground" text="Clear" />
+               </children>
+               <VBox.margin>
+                  <Insets right="14.0" top="8.0" />
+               </VBox.margin>
+            </HBox>
          </children>
       </VBox>
-      <HBox prefHeight="80.0" prefWidth="200.0">
-         <children>
-            <Button fx:id="btnSave" mnemonicParsing="false" onAction="#save" prefHeight="80.0" prefWidth="332.0" text="Save" />
-            <Pane prefHeight="200.0" prefWidth="9.0" />
-            <Button fx:id="btnClear" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#clearInputFields" prefHeight="80.0" prefWidth="346.0" styleClass="lightBackground" text="Clear" />
-         </children>
-         <VBox.margin>
-            <Insets top="8.0" />
-         </VBox.margin>
-      </HBox>
    </children>
    <padding>
-      <Insets bottom="20.0" right="20.0" top="20.0" />
+      <Insets bottom="10.0" right="10.0" top="10.0" />
    </padding>
-</VBox>
+</AnchorPane>

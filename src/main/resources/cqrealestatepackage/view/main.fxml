@@ -17,7 +17,7 @@
             <Insets />
          </BorderPane.margin>
          <children>
-            <VBox prefHeight="600.0" prefWidth="320.0" style="-fx-background-color: E6F7E9;">
+            <VBox prefHeight="600.0" prefWidth="320.0" styleClass="body" stylesheets="@../styles/styles.css">
                <children>
                   <HBox alignment="CENTER" prefHeight="150.0" prefWidth="350.0">
                      <children>
@@ -28,7 +28,7 @@
                         </Text>
                      </children>
                   </HBox>
-                  <Button fx:id="btnDashboard" mnemonicParsing="false" onAction="#gotoDashboard" prefHeight="80.0" prefWidth="350.0" text="Dashboard">
+                  <Button fx:id="btnDashboard" focusTraversable="false" mnemonicParsing="false" onAction="#gotoDashboard" prefHeight="80.0" prefWidth="350.0" styleClass="btn" text="Dashboard">
                      <VBox.margin>
                         <Insets top="8.0" />
                      </VBox.margin>
@@ -36,7 +36,7 @@
                         <Font size="19.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnMakeASale" layoutX="10.0" layoutY="128.0" mnemonicParsing="false" onAction="#gotoMakeASale" prefHeight="80.0" prefWidth="350.0" text="Make A Sale">
+                  <Button fx:id="btnMakeASale" focusTraversable="false" layoutX="10.0" layoutY="128.0" mnemonicParsing="false" onAction="#gotoMakeASale" prefHeight="80.0" prefWidth="350.0" styleClass="btn" text="Make A Sale">
                      <VBox.margin>
                         <Insets top="8.0" />
                      </VBox.margin>
@@ -44,7 +44,7 @@
                         <Font size="19.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnAddBuyer" layoutX="10.0" layoutY="208.0" mnemonicParsing="false" onAction="#gotoAddBuyer" prefHeight="80.0" prefWidth="350.0" text="Add Buyer">
+                  <Button fx:id="btnAddBuyer" focusTraversable="false" layoutX="10.0" layoutY="208.0" mnemonicParsing="false" onAction="#gotoAddBuyer" prefHeight="80.0" prefWidth="350.0" styleClass="btn" text="Add Buyer">
                      <VBox.margin>
                         <Insets top="8.0" />
                      </VBox.margin>
@@ -52,7 +52,7 @@
                         <Font size="19.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnAddSeller" layoutX="10.0" layoutY="304.0" mnemonicParsing="false" onAction="#gotoAddSeller" prefHeight="80.0" prefWidth="350.0" text="Add Seller">
+                  <Button fx:id="btnAddSeller" focusTraversable="false" layoutX="10.0" layoutY="304.0" mnemonicParsing="false" onAction="#gotoAddSeller" prefHeight="80.0" prefWidth="350.0" styleClass="btn" text="Add Seller">
                      <VBox.margin>
                         <Insets top="8.0" />
                      </VBox.margin>
@@ -60,7 +60,7 @@
                         <Font size="19.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnAddProperty" layoutX="10.0" layoutY="392.0" mnemonicParsing="false" onAction="#gotoAddProperty" prefHeight="80.0" prefWidth="350.0" text="Add Property">
+                  <Button fx:id="btnAddProperty" focusTraversable="false" layoutX="10.0" layoutY="392.0" mnemonicParsing="false" onAction="#gotoAddProperty" prefHeight="80.0" prefWidth="350.0" styleClass="btn" text="Add Property">
                      <VBox.margin>
                         <Insets top="8.0" />
                      </VBox.margin>

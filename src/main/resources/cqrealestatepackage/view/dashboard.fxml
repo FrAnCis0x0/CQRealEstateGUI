@@ -7,63 +7,79 @@
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="660.0" prefWidth="687.0" style="-fx-background-color: E6F7E9;" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cqrealestatepackage.controller.DashboardController">
+
+<AnchorPane xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cqrealestatepackage.controller.DashboardController">
    <children>
-      <HBox alignment="CENTER" prefHeight="70.0" prefWidth="587.0" stylesheets="@../styles/styles.css">
+      <VBox prefHeight="660.0" prefWidth="687.0" style="-fx-background-color: E6F7E9;" stylesheets="@../styles/styles.css" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Text fill="#945151" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header" text="Dashboard">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Text>
-         </children>
-      </HBox>
-      <HBox alignment="CENTER" prefHeight="301.0" prefWidth="667.0" styleClass="lightBackground">
-         <children>
-            <BarChart fx:id="dashboardBarChart" title="Sales">
-              <xAxis>
-                <CategoryAxis label="Properties" side="BOTTOM" />
-              </xAxis>
-              <yAxis>
-                <NumberAxis label="Prices" side="LEFT" />
-              </yAxis>
-            </BarChart>
-         </children>
-      </HBox>
-      <VBox prefHeight="266.0" prefWidth="667.0" styleClass="lightBackground">
-         <children>
-            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="667.0">
+            <HBox alignment="CENTER" prefHeight="70.0" prefWidth="587.0" stylesheets="@../styles/styles.css">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header" text="Recent Sales" />
+                  <Text fill="#945151" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header" text="Dashboard">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
                </children>
+               <VBox.margin>
+                  <Insets right="14.0" />
+               </VBox.margin>
             </HBox>
-            <TableView fx:id="mainTableView" focusTraversable="false" prefHeight="200.0" prefWidth="200.0">
-              <columns>
-                <TableColumn fx:id="columnDate" prefWidth="105.0" sortType="DESCENDING" text="Date" />
-                <TableColumn fx:id="columnPropertyType" editable="false" prefWidth="122.0" sortType="DESCENDING" text="Property Type" />
-                  <TableColumn fx:id="columnPrice" prefWidth="111.0" text="Price" />
-                  <TableColumn fx:id="columnSeller" minWidth="0.0" prefWidth="109.0" text="Seller" />
-                  <TableColumn fx:id="columnBuyer" prefWidth="100.0" text="Buyer" />
-              </columns>
-               <cursor>
-                  <Cursor fx:constant="TEXT" />
-               </cursor>
-            </TableView>
+            <HBox alignment="CENTER" prefHeight="301.0" prefWidth="667.0" styleClass="lightBackground">
+               <children>
+                  <BarChart fx:id="dashboardBarChart" title="Sales">
+                    <xAxis>
+                      <CategoryAxis label="Properties" side="BOTTOM">
+                           <tickLabelFont>
+                              <Font size="10.0" />
+                           </tickLabelFont>
+                        </CategoryAxis>
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis label="Prices" side="LEFT" />
+                    </yAxis>
+                  </BarChart>
+               </children>
+               <VBox.margin>
+                  <Insets right="14.0" />
+               </VBox.margin>
+            </HBox>
+            <VBox prefHeight="266.0" prefWidth="667.0" styleClass="lightBackground">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="667.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="h2" text="Recent Sales" />
+                     </children>
+                  </HBox>
+                  <TableView fx:id="mainTableView" focusTraversable="false" prefHeight="200.0" prefWidth="200.0">
+                    <columns>
+                      <TableColumn fx:id="columnDate" prefWidth="105.0" sortType="DESCENDING" text="Date" />
+                      <TableColumn fx:id="columnPropertyType" editable="false" prefWidth="122.0" sortType="DESCENDING" text="Property Type" />
+                        <TableColumn fx:id="columnPrice" prefWidth="111.0" text="Price" />
+                        <TableColumn fx:id="columnSeller" minWidth="0.0" prefWidth="109.0" text="Seller" />
+                        <TableColumn fx:id="columnBuyer" prefWidth="100.0" text="Buyer" />
+                    </columns>
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                  </TableView>
+               </children>
+               <VBox.margin>
+                  <Insets right="14.0" top="8.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" />
+               </padding>
+            </VBox>
          </children>
-         <VBox.margin>
-            <Insets top="8.0" />
-         </VBox.margin>
-         <padding>
-            <Insets bottom="20.0" left="20.0" right="20.0" />
-         </padding>
       </VBox>
    </children>
    <padding>
-      <Insets right="20.0" top="20.0" />
+      <Insets bottom="10.0" right="10.0" top="10.0" />
    </padding>
-</VBox>
+</AnchorPane>
