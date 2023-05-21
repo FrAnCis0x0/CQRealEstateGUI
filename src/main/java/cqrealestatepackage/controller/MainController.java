@@ -4,6 +4,7 @@
  */
 package cqrealestatepackage.controller;
 
+import cqrealestatepackage.App;
 import cqrealestatepackage.model.BorderPaneInfo;
 import cqrealestatepackage.model.NavigateToScene;
 import java.net.URL;
@@ -12,11 +13,11 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
 
 /**
  * FXML Controller class
@@ -47,11 +48,11 @@ public class MainController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        navButtonArray = new ArrayList<>();
-        navToScene = new NavigateToScene();
+        navButtonArray = new ArrayList<>();//stored all buttons
+        navToScene = new NavigateToScene();//holds navigation functions
         BorderPaneInfo.borderPane = mainBorderPane;
 
-        currentBtn = -1;
+        currentBtn = -1;//stores btn index
         navButtonArray.add(btnDashboard);
         navButtonArray.add(btnMakeASale);
         navButtonArray.add(btnAddBuyer);
@@ -59,6 +60,7 @@ public class MainController implements Initializable {
         navButtonArray.add(btnAddProperty);
         navigateTo("dashboard");
         changeButtonColor(0);
+        salesDataAvailable();//chech if sales data is accessible
         
         
     }    
@@ -67,11 +69,12 @@ public class MainController implements Initializable {
     private void gotoDashboard(ActionEvent event) {
         changeButtonColor(0);
         navigateTo("dashboard");
+
     }
 
     @FXML
     private void gotoMakeASale(ActionEvent event) {
-        //Todo check if properties and users exist
+        
         changeButtonColor(1);
         
         navigateTo("makeasale");
@@ -106,17 +109,35 @@ public class MainController implements Initializable {
     }
     
     private void changeButtonColor(int btnIndex){
+        //makes sure the clicked button is not the same 
+        //and if so, change button style
         if(currentBtn != btnIndex){
             navButtonArray.get(btnIndex).getStyleClass().add("btnClick");
             navButtonArray.get(btnIndex).getStyleClass().remove("btn");
 
         }
-
+        //when a new button is clicked change styling of the old button
         if(currentBtn >= 0 && currentBtn != btnIndex){
             navButtonArray.get(currentBtn).getStyleClass().remove("btnClick");
             navButtonArray.get(currentBtn).getStyleClass().add("btn");
         }
-        currentBtn = btnIndex;
+        currentBtn = btnIndex;//make the new button the current button
 
     }
+    //Alert Message
+    //check if sales data exist
+    private void salesDataAvailable(){
+        if(App.dataHandler.sales.getArrayList().isEmpty()){
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("File Error");
+            alert.setHeaderText("Sales Data Not Found");
+            alert.setContentText("File \"SaleData.txt\" does not exist or it's empty.");
+
+            // Show the alert
+            alert.showAndWait();
+         
+        }
+        
+    }
+    
 }
