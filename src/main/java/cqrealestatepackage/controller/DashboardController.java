@@ -5,7 +5,6 @@
 package cqrealestatepackage.controller;
 
 import cqrealestatepackage.App;
-import cqrealestatepackage.model.Land;
 import cqrealestatepackage.model.Sale;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,7 +14,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 import javafx.scene.chart.BarChart;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -49,9 +47,10 @@ public class DashboardController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
         App.dataHandler.getStatitics(dashboardBarChart);//provides statistics data to BarChart
         
-        
+        //assign parameters to columns
         columnDate.setCellValueFactory(new PropertyValueFactory<>("date"));
         columnPropertyType.setCellValueFactory(new PropertyValueFactory<>("propertyType"));
         columnPrice.setCellValueFactory(new PropertyValueFactory<>("soldPrice"));
@@ -59,10 +58,10 @@ public class DashboardController implements Initializable {
         columnBuyer.setCellValueFactory(new PropertyValueFactory<>("buyerName"));
         
        
-        
+        //give observer arraylist
         ObservableList<Sale> salesObservableList = FXCollections.observableArrayList();
         salesObservableList.addAll(App.dataHandler.sales.getArrayList());
-        
+        //give table view observer
         mainTableView.setItems(salesObservableList);
 
     }    
